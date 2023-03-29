@@ -6,7 +6,11 @@ QUANTITY_POSTS = 10
 
 
 def index(request):
-    posts = Post.objects.all().select_related('author', 'group')[:QUANTITY_POSTS]
+    posts = (
+        Post.objects.all().select_related('author', 'group')
+        [:QUANTITY_POSTS]
+    )
+
     context = {
         'posts': posts,
     }
