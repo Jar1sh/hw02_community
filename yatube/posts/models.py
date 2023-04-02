@@ -31,10 +31,10 @@ class Post(models.Model):
     )
 
 
-class Meta:
-    ordering = ['-pub_date']
-    verbose_name = 'Сообщение'
-    verbose_name_plural = 'Сообщения'
+    class Meta:
+        ordering = ['-pub_date']
+        verbose_name = 'Сообщение'
+        verbose_name_plural = 'Сообщения'
 
-    def __str__(self) -> str:
-        return self.text
+        def __str__(self) -> str:
+            return self.text
