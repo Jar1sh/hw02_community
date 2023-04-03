@@ -2,13 +2,13 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import Group, Post
 
-QUANTITY_POSTS = 10
+POSTS_PER_PAGE = 10
 
 
 def index(request):
     posts = (
-        Post.objects.all().select_related('author', 'group')
-        [:QUANTITY_POSTS]
+        Post.objects.select_related('author', 'group')
+        [:POSTS_PER_PAGE]
     )
 
     context = {
@@ -19,7 +19,7 @@ def index(request):
 
 def group_list(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = group.posts.all()[:QUANTITY_POSTS]
+    posts = group.posts.all()[:POSTS_PER_PAGE]
     context = {
         'group': group,
         'posts': posts,

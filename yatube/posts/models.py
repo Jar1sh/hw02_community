@@ -35,5 +35,5 @@ class Post(models.Model):
         verbose_name = 'Сообщение'
         verbose_name_plural = 'Сообщения'
 
-        def __str__(self) -> str:
-            return self.text
+    def __str__(self) -> str:
+        return self.text
